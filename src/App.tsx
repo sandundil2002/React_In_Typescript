@@ -1,14 +1,20 @@
 import './App.css'
 import ButtonComponent from "./assets/component/ButtonComponent.tsx";
+import {useState} from "react";
 
 function App() {
 
+    const [content, setContent] = useState("Default")
+
     const handleClick = (name: string) => {
+        let desc;
         subjects.map((subject) => {
             if(subject.name === name) {
-                alert(subject.desc)
+                desc = subject.desc
             }
         })
+        setContent(name)
+        alert(desc)
     }
 
     const subjects = [
@@ -28,9 +34,14 @@ function App() {
 
   return (
     <>
-        <ButtonComponent myClick = {handleClick} >{subjects[0].name}</ButtonComponent>
-        <ButtonComponent myClick = {handleClick} >{subjects[1].name}</ButtonComponent>
-        <ButtonComponent myClick = {handleClick} >{subjects[2].name}</ButtonComponent>
+        {
+            subjects.map((subject) => (
+                <ButtonComponent myClick = {handleClick} >{subject.name}</ButtonComponent>
+            ))
+        }
+
+        <br/>
+        <button>{content}</button>
     </>
   )
 }
