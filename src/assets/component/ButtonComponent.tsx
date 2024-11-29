@@ -1,11 +1,17 @@
-import {ReactNode} from "react";
+export function ButtonComponent(props) {
+    const handleClick = () => {
+        let newValue = props.count;
 
-export default function ButtonComponent(props: {children: ReactNode, myClick: any}) {
+        if (props.children === 'Add') {
+            newValue = newValue + 1;
+        } else {
+            newValue = newValue - 1;
+        }
+
+        props.myClick(newValue);
+    }
 
     return (
-        <>
-            <button onClick={() => {props.myClick(props.children)}}>{props.children}</button>
-        </>
+        <button onClick={handleClick}>{props.children}</button>
     )
-
 }
