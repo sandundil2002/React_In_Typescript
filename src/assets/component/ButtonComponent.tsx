@@ -1,7 +1,10 @@
-export default function ButtonComponent(props: {name: string}) {
+export default function ButtonComponent() {
+    const handleClick = () => {
+        alert('Click me!')
+    }
     return (
         <>
-            <button>{props.name}</button>
+            <button onClick={handleClick}></button>
         </>
     )
 }
