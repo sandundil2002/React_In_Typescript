@@ -1,10 +1,11 @@
-export default function ButtonComponent() {
-    const handleClick = () => {
-        alert('Click me!')
-    }
+import {ReactNode} from "react";
+
+export default function ButtonComponent(props: {children: ReactNode, myClick: any}) {
+
     return (
         <>
-            <button onClick={handleClick}></button>
+            <button onClick={() => {props.myClick(props.children)}}>{props.children}</button>
         </>
     )
+
 }
