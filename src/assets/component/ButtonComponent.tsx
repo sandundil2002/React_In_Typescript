@@ -1,4 +1,4 @@
-export function ButtonComponent(props) {
+export function ButtonComponent(props:any) {
     const handleClick = () => {
         let newValue = props.count;
 
