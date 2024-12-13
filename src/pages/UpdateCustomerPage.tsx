@@ -1,9 +1,9 @@
 import {Link} from "react-router";
 
-export const AddCustomer = () => {
+export const UpdateCustomerPage = () => {
     return (
         <>
-            <h1>Add Customer</h1>
+            <h1>Update Customer</h1>
             <Link to="/">Go Back</Link>
         </>
     );
