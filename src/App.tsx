@@ -1,11 +1,11 @@
 import './App.css';
 import {createBrowserRouter, RouterProvider} from "react-router";
-import {RootLayout} from "./component/RootLayout.tsx";
+import {RootLayout} from "./components/RootLayout.tsx";
 import {DashboardPage} from "./pages/DashboardPage.tsx";
 import {AddCustomerPage} from "./pages/AddCustomerPage.tsx";
-import {UpdateCustomerPage} from "./pages/UpdateCustomerPage.tsx";
-import {SearchCustomerPage} from "./pages/SearchCustomerPage.tsx";
 import {DeleteCustomerPage} from "./pages/DeleteCustomerPage.tsx";
+import {UpdateCustomerPage} from "./pages/UpdateCustomerPage.tsx";
+import {CustomerProvider} from "./components/CustomerProvider.tsx";
 import {ErrorPageComponent} from "./pages/ErrorPageComponent.tsx";
 
 function App() {
@@ -16,9 +16,8 @@ function App() {
             children: [
                 { path: "/", element: <DashboardPage/> },
                 { path: "/add", element: <AddCustomerPage/> },
-                { path: "/update", element: <UpdateCustomerPage/> },
-                { path: "/search", element: <SearchCustomerPage/> },
-                { path: "/delete", element: <DeleteCustomerPage/> },
+                { path : "/delete", element : <DeleteCustomerPage/>},
+                { path : "/update", element : <UpdateCustomerPage/>}
             ]
         },
         {
@@ -28,7 +27,9 @@ function App() {
     ])
     return (
         <>
-            <RouterProvider router={route}></RouterProvider>
+            <CustomerProvider>
+                <RouterProvider router={route} />
+            </CustomerProvider>
         </>
     );
 }
